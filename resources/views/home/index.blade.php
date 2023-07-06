@@ -232,8 +232,10 @@
                     <h5 class="custom-font2 text-navy-blue">Learn More</h5>
                 </div>
                 <div class="col-md-12 text-dark text-large justify-content-center d-flex">
-                    <a href="{{ route('') }}" target="_blank" class="btn bg-light-purple btn-rounded btn-large no-margin-lr">About</a>
-                    <a href="{{ route('learning.register') }}" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-large margin-20px-lr sm-margin-5px-top">Register</a>
+                    <a href="https://github.com/emekambachu/alx-project-elearning-and-assessment-portal.git"
+                       target="_blank"
+                       class="btn bg-light-purple btn-rounded btn-large no-margin-lr">Github</a>
+                    <a href="{{ route('about') }}" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-large margin-20px-lr sm-margin-5px-top">Learn about the team</a>
                 </div>
             </div>
         </div>
