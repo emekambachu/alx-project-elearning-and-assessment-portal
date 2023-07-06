@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Login
+    Admin Login
 @endsection
 
 @section('meta-tags')
@@ -27,14 +27,14 @@
 @endsection
 
 @section('content')
-
-    <section id="app" class="wow fadeIn parallax padding-five-tb" data-stellar-background-ratio="0.5"
-             style="background-image: url(&quot;{{ asset('images/home/home-intro-banner.jpg') }}&quot;);
+    <section id="app"
+             class="wow fadeIn parallax padding-five-tb"
+             data-stellar-background-ratio="0.5"
+             style="background-image: url(&quot;{{ asset('images/register-bg.jpg') }}&quot;);
          visibility: visible; animation-name: fadeIn; background-position: bottom;">
         <div class="opacity-light bg-extra-dark-gray"></div>
         <admin-login></admin-login>
     </section>
-
 @endsection
 
 @section('bottom-assets')

@@ -83,7 +83,7 @@
         formData.append('module_assignment_id', assignment_id.value);
 
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.post('/api/learning/module/assignment/store', formData, {
             headers: {
                 "Authorization" : "Bearer " + token,

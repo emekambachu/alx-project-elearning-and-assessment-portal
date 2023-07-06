@@ -30,24 +30,6 @@ class UserResource extends JsonResource
             'selected' => $this->selected,
             'last_login' => $this->last_login ? Carbon::parse($this->last_login)->format('M d Y') : '',
             'created_at' => $this->created_at ? Carbon::parse($this->created_at)->format('M d Y') : '',
-
-            'business_name' => $this->business ? $this->business->business_name : '',
-            'business_email' => $this->business ? $this->business->business_email : '',
-            'business_country' => $this->business && $this->business->country ? $this->business->country->country_name : '',
-            'business_registered' => $this->business && $this->business->business_registered === 1 ? 'Yes' : 'No',
-            'website' => $this->business ? $this->business->website : '',
-            'linkedin' => $this->business ? $this->business->linkedin : '',
-            'twitter' => $this->business ? $this->business->twitter : '',
-            'instagram' => $this->business ? $this->business->instagram : '',
-            'facebook' => $this->business ? $this->business->facebook : '',
-            'year_of_operation' => $this->business ? $this->business->year_of_operation : '',
-            'document' => $this->business && !empty($this->business->document) ? $this->business->document_path.$this->business->document : '',
-            'type_of_business' => $this->business ? $this->business->type_of_business : '',
-            'agribusiness_sector' => $this->business ? $this->business->agribusiness_sector : '',
-            'value_chain_operation' => $this->business ? $this->business->value_chain_operation : '',
-            'business_stage' => $this->business ? $this->business->business_stage : '',
-            'business_description' => $this->business ? $this->business->business_description : '',
-            'number_of_employees' => $this->business ? $this->business->number_of_employees : '',
         ];
     }
 }

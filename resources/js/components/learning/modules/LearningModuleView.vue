@@ -29,7 +29,7 @@ export default {
 
         const getModules = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/modules', {
                 // Make "true" if not using external API
                 withCredentials: true,
@@ -50,7 +50,6 @@ export default {
         }
 
         onBeforeMount(() => {
-            RouteService.completedDiagnosticTool(localStorage.getItem('brace-learning-tk'));
             getModules();
         });
 

@@ -84,7 +84,7 @@ export default {
                     SweetAlertService.formLoading(Swal, 'Loading....', 'Please wait');
                     axios.delete('/api/admin/module/assessment/questions/delete', {
                         headers: {
-                            "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                            "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                             'Accept' : 'application/json',
                         },
                         params: {

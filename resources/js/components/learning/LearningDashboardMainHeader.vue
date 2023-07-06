@@ -78,7 +78,7 @@ export default {
 
         const getUser = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/authenticate', {
                 // Make "true" if not using external API
                 withCredentials: true,

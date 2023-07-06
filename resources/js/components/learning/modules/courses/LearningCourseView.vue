@@ -117,7 +117,7 @@
                             <div class="col-md-8 p-0">
                                 <div class="course-header bg-light-green">
                             <span v-if="all_courses_completed"
-                                  class="float-left na-text-dark-green text-inter">Assignment</span>
+                                  class="float-left text-navy-blue text-inter">Assignment</span>
                                     <span v-else class="material-symbols-outlined float-right">lock</span>
 
                                 </div>
@@ -143,7 +143,7 @@
                             <div class="col-md-8 p-0">
                                 <div class="course-header bg-light-green">
                             <span v-if="all_courses_completed"
-                                  class="float-left na-text-dark-green">Assessment</span>
+                                  class="float-left text-navy-blue">Assessment</span>
                                     <span v-else class="material-symbols-outlined float-right">lock</span>
                                 </div>
                                 <div v-if="all_courses_completed" class="course-body">
@@ -161,7 +161,7 @@
                     </div>
                 </div>
 
-                <h4 v-else class="na-text-dark-green text-center">
+                <h4 v-else class="text-navy-blue text-center">
                     This module has been locked
                 </h4>
             </div>
@@ -202,7 +202,7 @@ export default {
 
         const getCourses = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/courses', {
                 headers: {
                     "Authorization" : "Bearer " + token,
@@ -226,7 +226,6 @@ export default {
         }
 
         onBeforeMount(() => {
-            RouteService.completedDiagnosticTool(localStorage.getItem('brace-learning-tk'));
             getCourses();
         });
 

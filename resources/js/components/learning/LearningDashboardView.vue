@@ -1,6 +1,6 @@
 <template>
 
-    <div class="row bg-gradient-orange-yellow border-radius-8 pt-5 mb-3">
+    <div class="row bg-gradient-blue-purple border-radius-8 pt-5 mb-3">
         <div class="col-7">
             <h1 class="text-white text-inter font-weight-bolder">Welcome {{ user.name }}</h1>
             <p class="text-white text-inter">
@@ -29,7 +29,7 @@
                 <img class="float-left" :src="'/images/icons/book-stack.png'" width="50"/>
                 <div class="float-left ml-2">
                     <p class="text-dark mb-0">Total Courses</p>
-                    <h2 class="text-inter na-text-dark-green">{{ totalCourses }}</h2>
+                    <h2 class="text-inter text-navy-blue">{{ totalCourses }}</h2>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
 
     <div class="row mt-5">
         <div class="col-12">
-            <h2 class="na-text-dark-green float-left">Modules</h2>
+            <h2 class="text-navy-blue float-left">Modules</h2>
 
             <router-link
                 exact
@@ -85,7 +85,7 @@ export default {
 
         const getUser = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/authenticate', {
                 // Make "true" if not using external API
                 withCredentials: true,
@@ -108,7 +108,7 @@ export default {
 
         const dashboardSummary = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/dashboard/summary', {
                 // Make "true" if not using external API
                 withCredentials: true,
@@ -132,7 +132,6 @@ export default {
         }
 
         onBeforeMount(() => {
-            RouteService.completedDiagnosticTool(localStorage.getItem('brace-learning-tk'));
             getUser();
             dashboardSummary();
         });

@@ -35,7 +35,7 @@
                             <!--If next module exists-->
                             <div v-if="module.next_module">
                                 <p class="text-center tx-16">
-                                    <strong class="na-text-dark-green">Well-done</strong> on passing this module assessment<br>
+                                    <strong class="text-navy-blue">Well-done</strong> on passing this module assessment<br>
                                     <strong>Please proceed to the next module</strong><br>
                                 </p>
 
@@ -49,7 +49,7 @@
                             <!--If next module does not exist-->
                             <div v-else>
                                 <p class="text-center tx-16">
-                                    <strong class="na-text-dark-green">Well-done</strong> on passing this module assessment<br>
+                                    <strong class="text-navy-blue">Well-done</strong> on passing this module assessment<br>
                                     <strong>You are currently on the last module, feel free to review other modules</strong><br>
                                 </p>
 
@@ -68,7 +68,7 @@
                             <!--If user has not passed the assessment but still has retakes-->
                             <div v-if="retake < 3">
                                 <p class="text-center tx-16">
-                                    <strong class="na-text-dark-green">Well-done</strong> on completing all courses for this module<br>
+                                    <strong class="text-navy-blue">Well-done</strong> on completing all courses for this module<br>
                                     You are required to complete this assessment before proceeding to the next module.<br>
 
                                     Note that your performance in each assessment counts towards your overall performance; you need an overall grade of 65% or higher to successfully complete this module.<br><br>
@@ -89,7 +89,7 @@
                                 <!--If next module exists-->
                                 <div v-if="module.next_module">
                                     <p class="text-center tx-16">
-                                        <strong class="na-text-dark-green">Unfortunately,</strong> you are out of retakes<br>
+                                        <strong class="text-navy-blue">Unfortunately,</strong> you are out of retakes<br>
                                         Please proceed to the next module and try to do better on your next assessment.
                                     </p>
                                     <!--If none of the 2 conditions are true, show disabled button-->
@@ -104,7 +104,7 @@
                                 <!--If next module does not exists-->
                                 <div v-else>
                                     <p class="text-center tx-16">
-                                        <strong class="na-text-dark-green">Unfortunately,</strong> you are out of retakes<br>
+                                        <strong class="text-navy-blue">Unfortunately,</strong> you are out of retakes<br>
                                         Retake other modules to improve your scores.
                                     </p>
 
@@ -142,7 +142,7 @@
                                          class="col-md-12 text-left ml-3 mb-4 mt-4">
 
                                         <p class="text-inter text-dark">
-                                        <span class="na-text-dark-green font-weight-bolder">
+                                        <span class="text-navy-blue font-weight-bolder">
                                             {{ index + 1 }}. </span>{{ question.question }}</p>
 
                                         <div class="form-check">
@@ -213,7 +213,7 @@
                                     Congratulations on passing the
                                     <strong class="text-orange">{{ module.title }}</strong> assessment.<br>
                                     <strong>
-                                        Your Score: <span class="na-text-dark-green">{{ percent }}%</span>
+                                        Your Score: <span class="text-navy-blue">{{ percent }}%</span>
                                     </strong>
                                 </p>
 
@@ -245,7 +245,7 @@
                                     Unfortunately you didn't pass the
                                     <strong class="text-orange">{{ module.title }}</strong> assessment.<br>
                                     <strong>
-                                        Your Score: <span class="na-text-dark-green">{{ percent }}%</span>
+                                        Your Score: <span class="text-navy-blue">{{ percent }}%</span>
                                     </strong><br>
                                     Click on ‘Retake’ to try again or 'Next Module' to continue next module.
                                 </p>
@@ -333,7 +333,7 @@ export default {
 
         const assessmentStatus = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             await axios.get('/api/learning/module/assessment/status', {
                 headers: {
                     "Authorization": "Bearer " + token,
@@ -391,7 +391,7 @@ export default {
 
         const getModule = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             await axios.get('/api/learning/module', {
                 headers: {
                     "Authorization" : "Bearer " + token,
@@ -412,7 +412,7 @@ export default {
 
         const getQuestions = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             await axios.get('/api/learning/module/assessment/questions', {
                 headers: {
                     "Authorization" : "Bearer " + token,
@@ -448,7 +448,7 @@ export default {
             });
 
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.post('/api/learning/module/assessment/store', formData, {
                 headers: {
                     "Authorization" : "Bearer " + token,
@@ -488,7 +488,6 @@ export default {
         }
 
         onBeforeMount(() => {
-            RouteService.completedDiagnosticTool(localStorage.getItem('brace-learning-tk'));
             assessmentStatus();
             getModule();
         });

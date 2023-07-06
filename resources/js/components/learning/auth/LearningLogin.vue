@@ -10,9 +10,9 @@
                         <h4 class="text-orange learning-intro-header text-center mx-auto mx-lg-0 sm-width-100 mb-0">
                             Login</h4>
                         <div v-if="errors.length > 0 || error_message" class="text-center text-danger text-medium">
-                                <span v-for="(error, index) in errors" :key="index">
+                                <p class="mb-0" v-for="(error, index) in errors" :key="index">
                                     {{ error }}
-                                </span><br>
+                                </p><br>
                             <span>{{ error_message }}</span>
                         </div>
 
@@ -56,6 +56,10 @@
 
                                 <div class="col-12">
                                     <button type="submit" class="login-form-btn">Login</button>
+                                    <p class="text-center">
+                                        <span class="text-dark mr-1">No Account?</span>
+                                        <a class="text-navy-blue" :href="'/learning/register'">Sign up</a>
+                                    </p>
                                 </div>
                             </div>
 
@@ -87,7 +91,7 @@ export default {
 
         const submitLogin = async () => {
             // Remove any previous token
-            localStorage.removeItem('brace-learning-tk');
+            localStorage.removeItem('learning-user-tk');
             SweetAlertService.formLoading(Swal, 'Please wait', 'Submitting...');
 
             await axios.post('/api/learning/login', form, {
@@ -95,15 +99,9 @@ export default {
             }).then((response) => {
                 if (response.data.success) {
                     // Store token in local storage (Will have to find a more secured way)
-                    localStorage.setItem('brace-learning-tk', response.data.token);
+                    localStorage.setItem('learning-user-tk', response.data.token);
                     console.log(response.data.user);
-                    // If diagnostic tool has been completed
-                    if(response.data.diagnostic_completed){
-                        console.log(response.data.diagnostic_completed);
-                        window.location.href = '/learning/dashboard';
-                    }else{
-                        window.location.href = '/diagnostic/user-details';
-                    }
+                    window.location.href = '/learning/dashboard';
 
                 } else {
                     SweetAlertService.formError(Swal, 'One ore more errors occurred', 3000);

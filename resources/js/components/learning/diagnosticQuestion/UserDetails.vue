@@ -139,7 +139,7 @@ export default {
 
     methods: {
         async getUserDetails() {
-            const token = localStorage.getItem("brace-learning-tk");
+            const token = localStorage.getItem("learning-user-tk");
             try {
                 const response = await axios.get('/api/user-details', {
                     headers: {

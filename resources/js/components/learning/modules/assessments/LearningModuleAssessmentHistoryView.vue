@@ -11,7 +11,7 @@
 
     const getModules = async () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/module/assessment/history', {
             headers: {
                 "Authorization" : "Bearer " + token,
@@ -34,7 +34,6 @@
     }
 
     onBeforeMount(() => {
-        RouteService.completedDiagnosticTool(localStorage.getItem('brace-learning-tk'));
         getModules();
         // Show overall score/percent
         completedModuleAssessments.value.length === countModules ? overallScore.value = true : overallScore.value = false;
@@ -68,8 +67,8 @@
         <div v-if="overallScore" class="col-md-10">
             <div class="row">
                 <div class="col-12 text-center ">
-                    <p class="na-text-dark-green text-manrope tx-30 mb-0">Overall Score</p>
-                    <h6 class="na-text-dark-green text-manrope">
+                    <p class="text-navy-blue text-manrope tx-30 mb-0">Overall Score</p>
+                    <h6 class="text-navy-blue text-manrope">
                         Overall Percent %</h6>
                 </div>
 
@@ -93,7 +92,7 @@
         <div class="col-md-10">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
-                    <p class="na-text-dark-green text-inter mb-1 tx-20">Score Breakdown</p>
+                    <p class="text-navy-blue text-inter mb-1 tx-20">Score Breakdown</p>
 
                     <div v-if="completedModuleAssessments.length">
                         <div v-for="(assessment, index) in completedModuleAssessments" :key="assessment.id"

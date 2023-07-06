@@ -19,68 +19,6 @@
     <meta name="twitter:title" content="ALX | E-learning and Assessment Portal" />
     <meta name="twitter:site" content="" />
     <meta name="twitter:creator" content="" />
-
-    <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>
-    {
-   "@context":"https://schema.org",
-   "@graph":[
-      {
-         "@type":"Organization",
-         "@id":"https://brace.afchub.org/#organization",
-         "name":"ALX | E-learning and Assessment Portal",
-         "url":"https://brace.afchub.org/",
-         "sameAs":[
-            "https://www.facebook.com/nourishafrica1",
-            "https://instagram.com/nourish_africa",
-            "https://www.linkedin.com/company/28506256",
-            "https://twitter.com/nourish_africa"
-         ],
-         "logo":{
-            "@type":"ImageObject",
-            "@id":"https://brace.afchub.org/#logo",
-            "url":"https://brace.afchub.org/wp-content/uploads/2019/04/NA-1-Official.png",
-            "width":848,
-            "height":519,
-            "caption":"ALX | E-learning and Assessment Portal"
-         },
-         "image":{
-            "@id":"https://brace.afchub.org/#logo"
-         }
-      },
-      {
-         "@type":"WebSite",
-         "@id":"https://brace.afchub.org/#website",
-         "url":"https://brace.afchub.org/",
-         "name":"ALX | E-learning and Assessment Portal",
-         "description":"A home for 1 million agri-food entrepreneurs transforming Africa&#039;s agricultural",
-         "publisher":{
-            "@id":"https://brace.afchub.org/#organization"
-         },
-         "potentialAction":{
-            "@type":"SearchAction",
-            "target":"https://brace.afchub.org/?s={search_term_string}",
-            "query-input":"required name=search_term_string"
-         }
-      },
-      {
-         "@type":"WebPage",
-         "@id":"{{ Request::fullUrl() }}#webpage",
-         "url":"{{ Request::fullUrl() }}",
-         "inLanguage":"en-US",
-         "name":"Welcome to ALX | E-learning and Assessment Portal Hub - ",
-         "isPartOf":{
-            "@id":"https://brace.afchub.org/#website"
-         },
-         "about":{
-            "@id":"https://brace.afchub.org/#organization"
-         },
-         "datePublished":"2019-12-03T12:51:31+00:00",
-         "dateModified":"2020-02-07T15:22:22+00:00",
-         "description":""
-      }
-   ]
-}
-</script>
 @endsection
 
 @section('top-assets')

@@ -1,54 +1,24 @@
 <template>
-    <tr :class="{'bg-selected': selectedApplicant }">
-        <td width="40%">
+    <tr>
+        <td width="80%">
             <strong>Name:</strong> {{ application.name }}<br>
             <strong>Email:</strong> {{ application.email }}<br>
             <strong>Mobile:</strong> {{ application.mobile }}<br>
-            <strong>Country:</strong> {{ application.country }}<br>
-            <strong>Country Residence:</strong> {{ application.country_residence }}<br>
-            <strong>Date of Birth:</strong> {{ application.date_of_birth }}<br>
-            <strong>Gender:</strong> {{ application.gender }}<br>
-            <strong>Education:</strong> {{ application.education }}<br>
+<!--            <strong>Country:</strong> {{ application.country }}<br>-->
+<!--            <strong>Country Residence:</strong> {{ application.country_residence }}<br>-->
+<!--            <strong>Date of Birth:</strong> {{ application.date_of_birth }}<br>-->
+<!--            <strong>Gender:</strong> {{ application.gender }}<br>-->
+<!--            <strong>Education:</strong> {{ application.education }}<br>-->
             <div><img width="70" :src="application.image"/></div>
-            <button class="btn btn-success">
-                <router-link :to="'/admin/user-answer/' + application.id" style="display: inline-block; text-decoration: none;; color: #ffffff;">
-                    User answers
-                </router-link>
-            </button>
-        </td>
-
-        <td width="40%">
-            <strong>Business Name:</strong> {{ application.business_name }}<br>
-            <strong>Business Email:</strong> {{ application.business_email }}<br>
-            <strong>Business Country:</strong> {{ application.business_country }}<br>
-            <strong>Registered Business?:</strong> {{ application.business_registered }}<br>
-            <strong>Year of Incorporation?:</strong> {{ application.year_of_operation }}<br>
-            <strong>Proof of Incorporation:</strong><br>
-            <a class="btn btn-sm btn-info" :href="application.document"
-               :download="application.document">Download</a><br>
-            <strong>Type of business:</strong> {{ application.type_of_business }}<br>
-            <strong>Agribusiness Sector:</strong> {{ application.agribusiness_sector }}<br>
-            <strong>Value Chain Operation:</strong> {{ application.value_chain_operation }}<br>
-            <strong>Business Stage:</strong> {{ application.business_stage }}<br>
-            <strong>Website:</strong> {{ application.website }}<br>
-            <strong>Linkedin:</strong> {{ application.linkedin }}<br>
-            <strong>Twitter:</strong> {{ application.twitter }}<br>
-            <strong>Instagram:</strong> {{ application.instagram }}<br>
-            <strong>Facebook:</strong> {{ application.facebook }}<br>
         </td>
 
         <td width="20%">
             <strong>Date:</strong> {{ application.created_at }}<br>
             <strong>Last Login:</strong> {{ application.last_login }}<br><br>
-            <button @click.prevent="toggleMore" class="btn btn-sm btn-info mr-1">
-                <span v-if="isOpen">Show less</span>
-                <span v-else>Show more</span>
-            </button>
-            <button @click.prevent="selectApplicant(application.id)" class="btn btn-sm btn-warning">
-                <span v-if="selectedApplicant">
-                    Remove from selection</span>
-                <span v-else>Select</span>
-            </button>
+<!--            <button @click.prevent="toggleMore" class="btn btn-sm btn-info mr-1">-->
+<!--                <span v-if="isOpen">Show less</span>-->
+<!--                <span v-else>Show more</span>-->
+<!--            </button>-->
         </td>
     </tr>
 
@@ -147,7 +117,7 @@
                         SweetAlertService.formLoading(Swal, 'Loading....', 'Please wait');
                         axios.get('/api/admin/applications/select', {
                             headers: {
-                                "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                                "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                                 'Accept' : 'application/json',
                             },
                             params: {

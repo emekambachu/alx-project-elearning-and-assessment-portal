@@ -10,7 +10,7 @@
 
         <div class="row">
 
-            <div class="col-xl-3 col-lg-6 col-12">
+            <div class="col-md-4 col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="media align-items-stretch">
@@ -20,7 +20,7 @@
                                 </div>
                             </a>
                             <div class="p-2 media-body">
-                                <h6>Applications</h6>
+                                <h6>Users</h6>
                                 <h5 class="text-bold-400 mb-0">{{ applications }}</h5>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-3 col-lg-6 col-12">
+            <div class="col-md-4 col-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="media align-items-stretch">
@@ -38,9 +38,29 @@
                                 </div>
                             </a>
                             <div class="p-2 media-body">
-                                <h6>Selected Applications</h6>
+                                <h6>Modules</h6>
                                 <h5 class="text-bold-400 mb-0">
-                                    {{ selectedApplications }}
+                                    0
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="media align-items-stretch">
+                            <a class="p-2 text-center bg-danger rounded-left pt-3" href="">
+                                <div>
+                                    <i class="icon-user font-large-2 text-white"></i>
+                                </div>
+                            </a>
+                            <div class="p-2 media-body">
+                                <h6>Courses</h6>
+                                <h5 class="text-bold-400 mb-0">
+                                    0
                                 </h5>
                             </div>
                         </div>
@@ -55,22 +75,18 @@
 </template>
 
 <script>
-import {onMounted, ref} from 'vue';
+import {onBeforeMount, onMounted, ref} from 'vue';
 import axios from "axios";
 export default {
 
     setup(){
         const user = ref('');
         const applications = ref(0);
-        const selectedApplications = ref(0);
-
-        // login using main hub api
-        const appUrl = process.env.MIX_API_URL+'/api/admin/user';
 
         const getUser = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('afc-admin-tk');
-            axios.get(appUrl, {
+            let token = localStorage.getItem('learning-admin-tk');
+            axios.get('/api/admin/authenticate', {
                 withCredentials: false,
                 headers: {
                     "Authorization" : "Bearer " + token,
@@ -82,7 +98,6 @@ export default {
             }).then((response) => {
                 if (response.data.success) {
                     user.value = response.data.user;
-                    console.log(response.data.user)
                 }
             }).catch((error) => {
                 console.log(error);
@@ -94,13 +109,12 @@ export default {
             axios.get('/api/admin/dashboard/stats', {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {
                 if (response.data.success) {
                     applications.value = response.data.applications
-                    selectedApplications.value = response.data.selected_applications
                     console.log(response.data);
                 }
             }).catch((error) => {
@@ -108,7 +122,7 @@ export default {
             });
         }
 
-        onMounted(() => {
+        onBeforeMount(() => {
             getUser();
             getStats();
         });
@@ -116,7 +130,6 @@ export default {
         return {
             user,
             applications,
-            selectedApplications,
 
             getUser,
             getStats

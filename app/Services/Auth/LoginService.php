@@ -33,16 +33,6 @@ class LoginService
         ])){
             // get Session
             $user = Auth::guard($webGuard)->user();
-            // Check if user completed diagnostic tool
-            $diagnosticCompleted = $this->diagnostic->userCompletedDiagnostic($user->id);
-            if($user->selected === 0){
-                return [
-                    'success' => false,
-                    'error_message' => 'unauthorized user',
-                ];
-            }
-            // Delete already existing tokens for user
-//            PersonalAccessToken::where('name', $request->email)->delete();
             // Create new token
             $token = $user->createToken($request->email, [$apiGuard])->plainTextToken;
             // Last login
@@ -53,7 +43,38 @@ class LoginService
             return [
                 'success' => true,
                 'user' => $user,
-                'diagnostic_completed' => $diagnosticCompleted,
+                'token' => $token,
+            ];
+        }else{
+            return [
+                'success' => false,
+                'error_message' => 'Incorrect credentials',
+            ];
+        }
+    }
+
+    public function adminLogin(
+        $request,
+        String $webGuard,
+        String $apiGuard
+    ): array
+    {
+        if(Auth::guard($webGuard)->attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ])){
+            // get Session
+            $user = Auth::guard($webGuard)->user();
+            // Create new token
+            $token = $user->createToken($request->email, [$apiGuard])->plainTextToken;
+            // Last login
+            $this->admin->admin()->where('email', $request->email)->update([
+                'last_login' => Carbon::now()->format('Y-m-d h:i:s'),
+            ]);
+
+            return [
+                'success' => true,
+                'user' => $user,
                 'token' => $token,
             ];
         }else{
@@ -83,7 +104,7 @@ class LoginService
             BaseService::sendEmailGeneral(
                 $emailArray,
                 'emails.learning.auth.send-password-reset-token',
-                'BRACE | Password Reset Token',
+                'Brain Boost E-learning | Password Reset Token',
                 $emailArray['email'],
                 $emailArray['name']
             );
@@ -119,11 +140,9 @@ class LoginService
     public function authenticateUserWithToken($token): array
     {
         $user = PersonalAccessToken::findToken($token)->tokenable;
-        $diagnosticCompleted = $this->diagnostic->userCompletedDiagnostic($user->id);
         return [
             'success' => true,
             'user' => new UserResource($user),
-            'diagnostic_completed' => $diagnosticCompleted,
         ];
     }
 

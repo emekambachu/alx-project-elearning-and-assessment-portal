@@ -199,7 +199,7 @@ export default {
             await axios.post('/api/admin/module/assessment/questions/store', formData, {
                 headers: {
                     'content-type': 'multipart/form-data',
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 }
             }).then((response) => {
@@ -258,7 +258,7 @@ export default {
             await axios.post('/api/admin/module/assessment/questions/update', formData, {
                 headers: {
                     'content-type': 'multipart/form-data',
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
                 params: {
@@ -290,7 +290,7 @@ export default {
             axios.get('/api/admin/modules', {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {

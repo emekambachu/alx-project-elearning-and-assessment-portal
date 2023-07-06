@@ -102,7 +102,7 @@ export default {
 
         const getAssignment = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/module/assignment', {
                 headers: {
                     "Authorization" : "Bearer " + token,

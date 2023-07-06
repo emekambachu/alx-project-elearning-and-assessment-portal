@@ -36,80 +36,78 @@ use App\Http\Controllers\Learning\DiagnosticToolsController;
 |
 */
 
-// Application
-Route::post('/application/store', [BraceApplicationController::class, 'store']);
-
-// Countries
-Route::get('/countries/africa', [BaseController::class, 'getAfricanCountries']);
 
 // Admin
-// Get users with specific guard
-Route::get('/admin/authenticate', static function (Request $request) {
-    return $request->user('admin-api');
-});
+Route::post('/admin/login', [AdminLoginController::class, 'login']);
+// Authenticate Admin
+Route::get('/admin/authenticate', [AdminLoginController::class, 'authenticate']);
 
+// Custom sanctum admin guard authentication for Learning Portal
+Route::middleware('auth:admin-api')->group(static function (){
 // Admin Dashboard
-Route::get('/admin/dashboard/stats', [AdminDashboardController::class, 'getStats']);
+    Route::get('/admin/dashboard/stats', [AdminDashboardController::class, 'getStats']);
 
 // Admin Application
-Route::get('/admin/applications', [AdminApplicationController::class, 'index']);
-Route::get('/admin/applications/selected', [AdminApplicationController::class, 'selectedApplicants']);
-Route::post('/admin/applications/search', [AdminApplicationController::class, 'search']);
-Route::get('/admin/applications/select', [AdminApplicationController::class, 'select']);
+    Route::get('/admin/applications', [AdminApplicationController::class, 'index']);
+    Route::get('/admin/applications/selected', [AdminApplicationController::class, 'selectedApplicants']);
+    Route::post('/admin/applications/search', [AdminApplicationController::class, 'search']);
+    Route::get('/admin/applications/select', [AdminApplicationController::class, 'select']);
 
 // Admin Selected Users Assessments
-Route::get('/admin/users/selected/assessments', [AdminUserController::class, 'index']);
+    Route::get('/admin/users/selected/assessments', [AdminUserController::class, 'index']);
 
 // Admin Module
-Route::get('/admin/modules', [AdminModuleController::class, 'index']);
-Route::post('/admin/modules/search', [AdminModuleController::class, 'search']);
-Route::post('/admin/modules/store', [AdminModuleController::class, 'store']);
-Route::post('/admin/modules/update', [AdminModuleController::class, 'update']);
-Route::delete('/admin/modules/delete', [AdminModuleController::class, 'destroy']);
+    Route::get('/admin/modules', [AdminModuleController::class, 'index']);
+    Route::post('/admin/modules/search', [AdminModuleController::class, 'search']);
+    Route::post('/admin/modules/store', [AdminModuleController::class, 'store']);
+    Route::post('/admin/modules/update', [AdminModuleController::class, 'update']);
+    Route::delete('/admin/modules/delete', [AdminModuleController::class, 'destroy']);
 
 // Admin Module Assignment
-Route::get('/admin/module/assignments', [AdminModuleAssignmentController::class, 'index']);
-Route::post('/admin/module/assignments/store', [AdminModuleAssignmentController::class, 'store']);
-Route::post('/admin/module/assignments/update', [AdminModuleAssignmentController::class, 'update']);
-Route::delete('/admin/module/assignments/delete', [AdminModuleAssignmentController::class, 'destroy']);
+    Route::get('/admin/module/assignments', [AdminModuleAssignmentController::class, 'index']);
+    Route::post('/admin/module/assignments/store', [AdminModuleAssignmentController::class, 'store']);
+    Route::post('/admin/module/assignments/update', [AdminModuleAssignmentController::class, 'update']);
+    Route::delete('/admin/module/assignments/delete', [AdminModuleAssignmentController::class, 'destroy']);
 
 // Admin Module Assessment Question
-Route::get('/admin/module/assessment/questions', [AdminModuleAssessmentQuestionController::class, 'index']);
-Route::post('/admin/module/assessment/questions/store', [AdminModuleAssessmentQuestionController::class, 'store']);
-Route::post('/admin/module/assessment/questions/update', [AdminModuleAssessmentQuestionController::class, 'update']);
-Route::delete('/admin/module/assessment/questions/delete', [AdminModuleAssessmentQuestionController::class, 'destroy']);
+    Route::get('/admin/module/assessment/questions', [AdminModuleAssessmentQuestionController::class, 'index']);
+    Route::post('/admin/module/assessment/questions/store', [AdminModuleAssessmentQuestionController::class, 'store']);
+    Route::post('/admin/module/assessment/questions/update', [AdminModuleAssessmentQuestionController::class, 'update']);
+    Route::delete('/admin/module/assessment/questions/delete', [AdminModuleAssessmentQuestionController::class, 'destroy']);
 
 // Admin Assessment
-Route::get('/admin/module/assessment', [AdminModuleAssessmentController::class, 'index']);
+    Route::get('/admin/module/assessment', [AdminModuleAssessmentController::class, 'index']);
 
 // Admin Course
-Route::get('/admin/courses', [AdminCourseController::class, 'index']);
-Route::get('/admin/module/courses', [AdminCourseController::class, 'moduleCourses']);
-Route::post('/admin/courses/search', [AdminCourseController::class, 'search']);
-Route::post('/admin/courses/store', [AdminCourseController::class, 'store']);
-Route::post('/admin/courses/update', [AdminCourseController::class, 'update']);
-Route::delete('/admin/courses/delete', [AdminCourseController::class, 'destroy']);
+    Route::get('/admin/courses', [AdminCourseController::class, 'index']);
+    Route::get('/admin/module/courses', [AdminCourseController::class, 'moduleCourses']);
+    Route::post('/admin/courses/search', [AdminCourseController::class, 'search']);
+    Route::post('/admin/courses/store', [AdminCourseController::class, 'store']);
+    Route::post('/admin/courses/update', [AdminCourseController::class, 'update']);
+    Route::delete('/admin/courses/delete', [AdminCourseController::class, 'destroy']);
 
 // Admin Course Resources
-Route::get('/admin/course/resources', [AdminCourseResourceController::class, 'index']);
-Route::post('/admin/course/resources/store', [AdminCourseResourceController::class, 'store']);
-Route::post('/admin/course/resources/update', [AdminCourseResourceController::class, 'update']);
-Route::delete('/admin/course/resources/delete', [AdminCourseResourceController::class, 'destroy']);
+    Route::get('/admin/course/resources', [AdminCourseResourceController::class, 'index']);
+    Route::post('/admin/course/resources/store', [AdminCourseResourceController::class, 'store']);
+    Route::post('/admin/course/resources/update', [AdminCourseResourceController::class, 'update']);
+    Route::delete('/admin/course/resources/delete', [AdminCourseResourceController::class, 'destroy']);
 
 // Admin Diagnostic Tool
-Route::get('/admin/diagnostic-tool/results', [AdminDiagnosticToolController::class, 'results']);
-Route::post('/admin/diagnostic-tool/results/search', [AdminDiagnosticToolController::class, 'search']);
-Route::get('/user-answer_byid/{id}', [DiagnosticToolsController::class, 'fetchUserAnswersById']);
-Route::get('/user-answer_byemail/{email}', [DiagnosticToolsController::class, 'fetchUserAnswersByEmail']);
-Route::get('/learning/diagnostic-tool', [DiagnosticToolsController::class, 'index']);
-
-Route::post('/create_question', [DiagnosticToolsController::class, 'store']);
-Route::get('/diagnostic-question/{id}', [DiagnosticToolsController::class, 'getOneQuestion']);
-Route::put('/diagnostic-question/{id}', [DiagnosticToolsController::class, 'editOneQuestion']);
-Route::delete('/diagnostic-question/{id}', [DiagnosticToolsController::class, 'deleteOneQuestion']);
+//    Route::get('/admin/diagnostic-tool/results', [AdminDiagnosticToolController::class, 'results']);
+//    Route::post('/admin/diagnostic-tool/results/search', [AdminDiagnosticToolController::class, 'search']);
+//    Route::get('/user-answer_byid/{id}', [DiagnosticToolsController::class, 'fetchUserAnswersById']);
+//    Route::get('/user-answer_byemail/{email}', [DiagnosticToolsController::class, 'fetchUserAnswersByEmail']);
+//    Route::get('/learning/diagnostic-tool', [DiagnosticToolsController::class, 'index']);
+//
+//    Route::post('/create_question', [DiagnosticToolsController::class, 'store']);
+//    Route::get('/diagnostic-question/{id}', [DiagnosticToolsController::class, 'getOneQuestion']);
+//    Route::put('/diagnostic-question/{id}', [DiagnosticToolsController::class, 'editOneQuestion']);
+//    Route::delete('/diagnostic-question/{id}', [DiagnosticToolsController::class, 'deleteOneQuestion']);
 
 // Admin Logout
-Route::get('/admin/logout', [AdminLoginController::class, 'logout']);
+    Route::get('/admin/logout', [AdminLoginController::class, 'logout']);
+});
+
 
 // Learning Login
 Route::post('/learning/register', [LearningRegisterController::class, 'register']);

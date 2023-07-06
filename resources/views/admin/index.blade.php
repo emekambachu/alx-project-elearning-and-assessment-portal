@@ -6,18 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 
-    <title>ALX | E-learning and Assessment Portal</title>
+    <title>ALX | Admin | E-learning and Assessment Portal</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>window.Laravel = {csrfToken: '{{ csrf_token() }}'}</script>
-
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/nourishing_africa_logoonly.jpg') }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('images/nourishing_africa_logoonly.jpg') }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/nourishing_africa_logoonly.jpg') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/nourishing_africa_logoonly.jpg') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/nourishing_africa_logoonly.jpg') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/nourishing_africa_logoonly.jpg') }}">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-touch-fullscreen" content="yes">
@@ -54,7 +47,7 @@
         <div class="sidebar-header">
             <div class="logo clearfix"><a href="{{ url('/') }}" class="logo-text float-left">
                     <div>
-                        <img src="{{ asset('images/logo-white.png') }}" />
+                        <img src="{{ asset('images/logo-white.png') }}" width="150" />
                     </div>
                     <span class="text align-middle"></span></a>
                     <a id="sidebarToggle" href="javascript:;"
@@ -80,21 +73,7 @@
                     <li class="nav-item">
                         <router-link exact :to="{name: 'AdminApplicationView'}">
                             <i class="fa fa-users"></i>
-                            <span class="menu-title">Applications</span>
-                        </router-link>
-                    </li>
-
-                    <li class="nav-item">
-                        <router-link exact to="/admin/diagnostic-questions">
-                            <i class="fa fa-users"></i>
-                            <span class="menu-title">Diagnostic Questions</span>
-                        </router-link>
-                    </li>
-
-                    <li class="nav-item">
-                        <router-link exact :to="{name: 'AdminDiagnosticToolResultsView'}">
-                            <i class="fa fa-book"></i>
-                            <span class="menu-title">Diagnostic Results</span>
+                            <span class="menu-title">Users</span>
                         </router-link>
                     </li>
 

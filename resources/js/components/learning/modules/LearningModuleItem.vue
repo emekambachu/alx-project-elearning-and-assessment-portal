@@ -8,7 +8,7 @@
                         <router-link
                             exact
                             :to="{name: 'LearningCourseView', params: { id: module.id }}">
-                            <h5 class="text-inter na-text-dark-green">{{ module.title }}</h5>
+                            <h5 class="text-inter text-navy-blue">{{ module.title }}</h5>
                             <img class="module-grid-image" :src="module.image"/>
                         </router-link>
                     </div>
@@ -24,7 +24,7 @@
                         <router-link
                             exact
                             :to="{name: 'LearningCourseView', params: { id: module.id }}">
-                            <h5 class="text-inter na-text-dark-green">{{ module.title }}</h5>
+                            <h5 class="text-inter text-navy-blue">{{ module.title }}</h5>
                             <img class="module-grid-image" :src="module.image"/>
                         </router-link>
                     </div>
@@ -36,10 +36,10 @@
         <div class="col-md-6" v-else-if="module.sort !== minModule && !module.previous_module_completed">
             <div class="module-preview-box mr-2">
                 <div class="row module-preview-inner opacity50">
-                    <div class="col-11 na-text-dark-green pb-1">
+                    <div class="col-11 text-navy-blue pb-1">
                         <!--if this is not the first module, check if the previous module has been completed-->
                         <!--Lock this module/show lock icon if previous module has not been completed-->
-                        <h5 class="text-inter na-text-dark-green">{{ module.title }}</h5>
+                        <h5 class="text-inter text-navy-blue">{{ module.title }}</h5>
                     </div>
                     <div class="col-1">
                         <span class="material-symbols-outlined float-right">lock</span>

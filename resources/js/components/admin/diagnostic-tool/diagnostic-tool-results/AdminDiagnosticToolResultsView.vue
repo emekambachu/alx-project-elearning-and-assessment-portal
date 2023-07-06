@@ -30,7 +30,7 @@ import {
         dataLoaded.value = false;
         axios.get('/api/admin/diagnostic-tool/results?page=' + page, {
             headers: {
-                "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                 'Accept' : 'application/json',
             },
         }).then((response) => {
@@ -61,7 +61,7 @@ import {
 
         axios.post('/api/admin/diagnostic-tool/results/search?page=' + page, form, {
             headers: {
-                "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                 'Accept' : 'application/json',
             },
         }).then((response) => {

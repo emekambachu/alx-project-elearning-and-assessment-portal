@@ -227,7 +227,7 @@ export default {
             axios.get('/api/admin/module/assessment/questions', {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
                 params: {

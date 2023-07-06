@@ -15,7 +15,7 @@ import {onBeforeMount, ref} from "vue";
 
     const likeComment = () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         let data = {
             course_id: course_id.value,
             comment_id: comment.value.id,
@@ -43,7 +43,7 @@ import {onBeforeMount, ref} from "vue";
     }
 
     const likedByUser = () => {
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/course/discussion/liked', {
             headers: {
                 "Authorization" : "Bearer " + token,

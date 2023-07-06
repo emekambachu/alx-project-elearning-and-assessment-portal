@@ -2,7 +2,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h4 class="content-header">BRACE | Applications</h4>
+            <h4 class="content-header">BRACE | Users</h4>
         </div>
 
         <div class="col-xl-3 col-lg-6 col-12">
@@ -15,22 +15,6 @@
                         <div class="p-2 media-body">
                             <h6>Total</h6>
                             <h5 class="text-bold-400 mb-0">{{ total }}</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-6 col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="media align-items-stretch">
-                        <div class="p-2">
-                            <i class="fa fa-user font-large-2 text-success"></i>
-                        </div>
-                        <div class="p-2 media-body">
-                            <h6>Total Selected</h6>
-                            <h5 class="text-bold-400 mb-0">{{ totalSelected }}</h5>
                         </div>
                     </div>
                 </div>
@@ -52,42 +36,14 @@
                             <label>Name/Email</label>
                             <input class="form-control" type="text" v-model="form.term">
                         </div>
-                        <div class="col-md-4" style="margin-bottom: 10px;">
-                            <label>Country</label>
-                            <select v-model="form.country_id" class="form-control">
-                                <option value="">Select</option>
-                                <option v-for="country in countries"
-                                        :key="country.id"
-                                        :value="country.id">{{ country.country_name }}</option>
-                            </select>
-                        </div>
-
-                        <div class="col-md-4" style="margin-bottom: 10px;">
-                            <label>Selected</label>
-                            <select v-model="form.selected" class="form-control">
-                                <option value="">Select</option>
-                                <option value="selected">Selected applicants</option>
-                                <option value="all">All applicants</option>
-                            </select>
-                        </div>
 
                         <div class="col-md-3" style="margin-bottom: 10px;">
-                            <label>Date of Birth (Start)</label>
-                            <input v-model="form.dob_start" class="form-control" type="date">
-                        </div>
-
-                        <div class="col-md-3" style="margin-bottom: 10px;">
-                            <label>Date of Birth (End)</label>
-                            <input v-model="form.dob_end" class="form-control" type="date">
-                        </div>
-
-                        <div class="col-md-3" style="margin-bottom: 10px;">
-                            <label>Application Date (Start)</label>
+                            <label>Registration Date (Start)</label>
                             <input v-model="form.application_date_start" class="form-control" type="date">
                         </div>
 
                         <div class="col-md-3" style="margin-bottom: 10px;">
-                            <label>Application Date (End)</label>
+                            <label>Registration Date (End)</label>
                             <input v-model="form.application_date_end" class="form-control" type="date">
                         </div>
 
@@ -133,7 +89,6 @@
                                 <thead>
                                 <tr>
                                     <th class="border-top-0">Bio</th>
-                                    <th class="border-top-0">Business</th>
                                     <th class="border-top-0">Action</th>
                                 </tr>
                                 </thead>
@@ -144,7 +99,6 @@
                                         v-for="application in applications.data"
                                         :key="application.id"
                                         :application="application"
-                                        @emitting-total-selected="updateTotalSelected"
                                     ></admin-application-item>
                                 </template>
 
@@ -287,17 +241,11 @@
         setup(){
             const form = reactive({
                 term: '',
-                country_id: '',
-                dob_start: '',
-                dob_end: '',
                 application_date_start: '',
                 application_date_end: '',
-                selected: '',
             });
             const applications = ref([]);
-            const countries = ref([]);
             const total = ref(0);
-            const totalSelected = ref(0);
             const dataLoaded = ref(false);
             const searchActive = ref(false);
             const search_values = ref([]);
@@ -308,14 +256,13 @@
                 axios.get('/api/admin/applications?page=' + page, {
                     withCredentials: true,
                     headers: {
-                        "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                        "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                         'Accept' : 'application/json',
                     },
                 }).then((response) => {
                     if(response.data.success === true){
                         applications.value = response.data.applications;
                         total.value = response.data.total;
-                        totalSelected.value = response.data.total_selected;
                     }else{
                         console.log(response.data.message);
                     }
@@ -335,7 +282,7 @@
                 axios.post('/api/admin/applications/search?page=' + page, form, {
                     withCredentials: true,
                     headers: {
-                        "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                        "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                         'Accept' : 'application/json',
                     },
                 }).then((response) => {
@@ -367,43 +314,22 @@
                     });
             }
 
-            const getCategories = async () => {
-                await axios.get('/api/nomination/categories')
-                    .then((response) => {
-                        if (response.data.success) {
-                            console.log(response.data.categories);
-                            categories.value = response.data.categories;
-                        } else {
-                            console.log(response.data.message);
-                        }
-                    }).catch((error) => {
-                        console.log(error);
-                    });
-            }
-
-            const updateTotalSelected = async (event) => {
-                totalSelected.value = event;
-            }
-
             onMounted(() => {
                 getApplications();
-                getCountries();
+                // getCountries();
             });
 
             return {
                 form,
                 applications,
                 total,
-                totalSelected,
                 dataLoaded,
                 searchActive,
                 search_values,
-                countries,
 
                 getApplications,
                 searchApplications,
                 getCountries,
-                updateTotalSelected
             }
         }
 

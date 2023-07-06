@@ -56,27 +56,5 @@ Route::get('/learning/{any}', static function () {
     return view('learning.index');
 })->where('any', '^(?!/login).*$');
 
-Route::get('/diagnostic/{any}', static function () {
-    return view('diagnostic.index');
-})->where('any', '^(?!/login).*$');
-
-
 //GitHub Deployment
 Route::post('/github/deploy', [GithubDeploymentController::class, 'deploy']);
-
-
-Route::get('/yaedp/export-readiness-diagnostic/',
-    [App\Http\Controllers\ExportDiagnosticTool\DiagnosticApplicationController::class, 'index'])
-    ->name('yaedp.export-diagnostic.index');
-Route::get('/yaedp/export-diagnostic/instructions',
-    [App\Http\Controllers\ExportDiagnosticTool\DiagnosticApplicationController::class, 'instructions'])
-    ->name('yaedp.export-diagnostic.instructions');
-Route::get('/yaedp/export-diagnostic/participant-information',
-    [App\Http\Controllers\ExportDiagnosticTool\DiagnosticApplicationController::class, 'participantInformation'])
-    ->name('yaedp.export-diagnostic.participant-information');
-Route::get('/yaedp/export-diagnostic/start',
-    [App\Http\Controllers\ExportDiagnosticTool\DiagnosticApplicationController::class, 'start'])
-    ->name('yaedp.export-diagnostic.start');
-Route::get('/yaedp/export-diagnostic/logout',
-    [App\Http\Controllers\ExportDiagnosticTool\DiagnosticApplicationController::class, 'logout'])
-    ->name('yaedp.export-diagnostic.logout');

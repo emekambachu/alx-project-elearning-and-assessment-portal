@@ -27,7 +27,7 @@ import {ref, reactive, onBeforeMount} from 'vue';
         axios.get('/api/admin/users/selected/assessments?page=' + page, {
             // withCredentials: true,
             headers: {
-                "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                 'Accept' : 'application/json',
             },
         }).then((response) => {
@@ -53,7 +53,7 @@ import {ref, reactive, onBeforeMount} from 'vue';
         axios.post('/api/admin/users/selected/assessments?page=' + page, form, {
             // withCredentials: true,
             headers: {
-                "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                 'Accept' : 'application/json',
             },
         }).then((response) => {

@@ -283,7 +283,7 @@ export default {
             }
         },
         async getQuestionStatus() {
-            const token = localStorage.getItem("brace-learning-tk");
+            const token = localStorage.getItem("learning-user-tk");
             try {
                 const response = await axios.get(`https://brace.afchub.org/api/diagnostic-tool/fetch_answer_status`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`}})
                 // const response = await axios.get(
@@ -306,7 +306,7 @@ export default {
             } catch (error) {}
         },
         async handleSubmit() {
-            const token = localStorage.getItem("brace-learning-tk");
+            const token = localStorage.getItem("learning-user-tk");
             var formData = {};
             var ansStatusData = {};
 

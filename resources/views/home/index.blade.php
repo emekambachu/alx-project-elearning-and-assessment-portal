@@ -66,8 +66,8 @@
                                             <div class="bg-white-opacity p-4 border-radius-4 width-auto">
                                                 <h4 class="text-inter text-orange font-weight-700 letter-spacing-minus-1  lg-line-height-auto">Brain boost E-learning portal</h4>
                                                 <p class="text-extra-dark-gray text-large margin-four-bottom ">Learn from the comfort of your home, with access to varieties of courses.</p>
-                                                <a href="" target="_blank" class="btn bg-light-purple btn-rounded btn-small no-margin-lr">About</a>
-                                                <a href="" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-small margin-20px-lr sm-margin-5px-top">Register</a>
+                                                <a href="{{ route('about') }}" target="_blank" class="btn bg-light-purple btn-rounded btn-small no-margin-lr">About</a>
+                                                <a href="{{ route('learning.register') }}" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-small margin-20px-lr sm-margin-5px-top">Register</a>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@
                 <!-- end slider item -->
                 <!-- start slider item -->
                 <div class="swiper-slide cover-background"
-                     style="background-image:url({{ asset('/images/home/slider/slide1.jpg') }});">
+                     style="background-image:url({{ asset('/images/home/slider/slide2.jpg') }});">
                     <div class="container position-relative full-screen">
                         <div class="col-md-12 slider-typography text-center text-md-left">
                             <div class="slider-text-middle-main">
@@ -89,8 +89,8 @@
                                             <div class="bg-white-opacity p-4 border-radius-4 width-auto">
                                                 <h4 class="text-inter text-orange font-weight-700 letter-spacing-minus-1  lg-line-height-auto">Fully functional admin panel</h4>
                                                 <p class="text-extra-dark-gray text-large margin-four-bottom">Add modules and courses for users to have access</p>
-                                                <a href="" target="_blank" class="btn bg-light-purple btn-rounded btn-small no-margin-lr">About</a>
-                                                <a href="" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-small margin-20px-lr sm-margin-5px-top">Register</a>
+                                                <a href="{{ route('about') }}" target="_blank" class="btn bg-light-purple btn-rounded btn-small no-margin-lr">About</a>
+                                                <a href="{{ route('learning.register') }}" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-small margin-20px-lr sm-margin-5px-top">Register</a>
                                             </div>
                                         </div>
                                     </div>
@@ -154,20 +154,86 @@
         <div class="container">
             <div class="row program-benefits">
                 <div class="col-12">
-                    <h5 class="custom-font2 text-navy-blue">Our features</h5>
+                    <h5 class="custom-font2 text-navy-blue">Interactive Dashboard</h5>
                 </div>
-                <div class="col-md-6 text-dark text-large">
+                <div class="col-md-4 text-dark text-large">
                     <ul>
                         <li>Play lecture videos on low quality networks</li>
                         <li>Access to courses across a wide variety subjects</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 justify-content-center">
+                    <img class="program-benefits-img" src="{{ asset('/images/home/interactive-dashboard.png') }}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding-four-tb" style="background-color: #ffcd84;">
+        <div class="container">
+            <div class="row program-benefits">
+                <div class="col-12">
+                    <h5 class="custom-font2 text-navy-blue">Accessibility</h5>
+                </div>
+                <div class="col-md-4 text-dark text-large">
+                    <ul>
                         <li>Fully interactive and responsive on mobile devices</li>
+                        <li>Prerequisite courses and modules to track user progress</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 justify-content-center">
+                    <img class="program-benefits-img" src="{{ asset('/images/home/prerequisite-courses.png') }}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding-four-tb" style="background-color: #61d2fa;">
+        <div class="container">
+            <div class="row program-benefits">
+                <div class="col-12">
+                    <h5 class="custom-font2 text-navy-blue">Assessment and Grading</h5>
+                </div>
+                <div class="col-md-4 text-dark text-large">
+                    <ul>
                         <li>Take assessments to test your skills</li>
+                    </ul>
+                </div>
+                <div class="col-md-8 justify-content-center">
+                    <img class="program-benefits-img" src="{{ asset('/images/home/assessments.png') }}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding-four-tb">
+        <div class="container">
+            <div class="row program-benefits">
+                <div class="col-12">
+                    <h5 class="custom-font2 text-navy-blue">Admin Management</h5>
+                </div>
+                <div class="col-md-4 text-dark text-large">
+                    <ul>
                         <li>Fully functional admin to add courses and assessments</li>
                         <li>Track user activity from our admin area</li>
                     </ul>
                 </div>
-                <div class="col-md-6 justify-content-center">
-                    <img class="program-benefits-img" src="{{ asset('images/home/intro3.png') }}" alt=""/>
+                <div class="col-md-8 justify-content-center">
+                    <img class="program-benefits-img" src="{{ asset('/images/home/admin-course-management.png') }}" alt=""/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding-four-tb">
+        <div class="container">
+            <div class="row program-benefits">
+                <div class="col-12">
+                    <h5 class="custom-font2 text-navy-blue">Learn More</h5>
+                </div>
+                <div class="col-md-12 text-dark text-large justify-content-center d-flex">
+                    <a href="{{ route('') }}" target="_blank" class="btn bg-light-purple btn-rounded btn-large no-margin-lr">About</a>
+                    <a href="{{ route('learning.register') }}" target="_blank" class="btn btn-transparent-dark-gray btn-rounded btn-large margin-20px-lr sm-margin-5px-top">Register</a>
                 </div>
             </div>
         </div>

@@ -22,7 +22,6 @@ class Admin extends Authenticatable
       'admin_department_id',
       'position',
       'last_login',
-      'admin_department_id'
     ];
 
     public function department(): \Illuminate\Database\Eloquent\Relations\BelongsTo

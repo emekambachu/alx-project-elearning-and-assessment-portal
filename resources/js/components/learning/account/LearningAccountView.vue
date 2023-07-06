@@ -17,7 +17,7 @@ import {ref, reactive, onBeforeMount} from "vue";
 
     const getUser = async () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/authenticate', {
             // Make "true" if not using external API
             withCredentials: true,
@@ -81,7 +81,7 @@ import {ref, reactive, onBeforeMount} from "vue";
         }
 
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.post('/api/learning/account/update/account', formData, {
             headers: {
                 "Authorization" : "Bearer " + token,
@@ -133,7 +133,7 @@ import {ref, reactive, onBeforeMount} from "vue";
         formData.append('password_confirmation', form.password_confirmation);
 
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.post('/api/learning/account/update/account', formData, {
             headers: {
                 "Authorization" : "Bearer " + token,

@@ -9,10 +9,10 @@
                     <div class="col-12 margin-six-bottom lg-margin-six-bottom md-margin-30px-bottom sm-no-margin-bottom">
                         <h4 class="text-orange learning-intro-header text-center mx-auto mx-lg-0 sm-width-100 mb-0">Register</h4>
 
-                        <div v-if="errors.length > 0 || error_message" class="text-center text-danger text-medium">
-                                <span v-for="(error, index) in errors" :key="index">
+                        <div v-if="errors.length > 0 || error_message" class="text-center text-danger text-small">
+                                <p class="mb-0" v-for="(error, index) in errors" :key="index">
                                     {{ error }}
-                                </span><br>
+                                </p>
                             <span>{{ error_message }}</span>
                         </div>
 
@@ -71,7 +71,7 @@
                                         <input v-model="form.remember_me" class="login-form-checkbox"
                                                style="display: inline; width: 20px;" type="checkbox"
                                                name="remember">
-                                        <label class="text-small text-navy-blue">Remember me</label>
+                                        <label class="text-medium text-navy-blue">Remember me</label>
                                     </div>
                                 </div>
 
@@ -84,6 +84,10 @@
 
                                 <div class="col-12">
                                     <button type="submit" class="login-form-btn">Register</button>
+                                    <p class="text-center">
+                                        <span class="text-dark mr-1">Already Registered?</span>
+                                        <a class="text-navy-blue" :href="'/learning/login'">Login</a>
+                                    </p>
                                 </div>
                             </div>
 

@@ -39,10 +39,6 @@ import LearningCourseShow from "../components/learning/modules/courses/LearningC
 import LearningAccountView from "../components/learning/account/LearningAccountView.vue";
 import LearningSelfHelpView from "../components/learning/self-help/LearningSelfHelpView.vue";
 
-// main hub api
-const adminUserUrl = process.env.MIX_API_URL+'/api/admin/user';
-const adminLogoutUrl = process.env.MIX_API_URL+'/api/admin/logout';
-
 /* Authenticated Component */
 const routes = [
 
@@ -64,8 +60,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -82,8 +78,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -97,8 +93,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -112,8 +108,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -127,8 +123,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -142,8 +138,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -157,8 +153,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -172,8 +168,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -187,55 +183,8 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
-                next,
-                '/admin/login',
-            )
-        },
-    },
-
-
-    // Admin Diagnostic Tool
-    {
-        path: '/admin/user-answer/:id',
-        name: "/UserAnswers",
-        component: () => import('../components/admin/useranswers/UserAnswers.vue'),
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
-                next,
-                '/admin/login',
-            )
-        },
-    },
-
-    {
-        path: '/admin/diagnostic-questions',
-        name: "/DiagnosticQuestions",
-        component: () => import('../components/admin/diagnostic-tool/diagnostic-tool-questions/DiagnosticQuest.vue'),
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
-                next,
-                '/admin/login',
-            )
-        },
-    },
-
-    {
-        name: "AdminDiagnosticToolResultsView",
-        path: '/admin/diagnostic-tool/results',
-        component: AdminDiagnosticToolResultsView,
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                adminUserUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 next,
                 '/admin/login',
             )
@@ -248,13 +197,13 @@ const routes = [
         beforeEnter: (to, from, next) => {
             BaseService.deleteCookies();
             RouteService.authenticateUser(
-                adminLogoutUrl,
-                localStorage.getItem('afc-admin-tk'),
+                '/api/admin/authenticate',
+                localStorage.getItem('learning-admin-tk'),
                 window.location.href = '/admin/login',
                 '/admin/login'
             );
             // Delete token after logout
-            localStorage.removeItem("afc-admin-tk");
+            localStorage.removeItem("learning-admin-tk");
         }
     },
 
@@ -267,7 +216,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -285,7 +234,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -303,7 +252,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -321,7 +270,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -339,7 +288,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -357,7 +306,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -375,7 +324,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -393,7 +342,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -411,7 +360,7 @@ const routes = [
             BaseService.deleteCookies();
             RouteService.authenticateUser(
                 '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 next,
                 '/learning/login',
             )
@@ -427,97 +376,12 @@ const routes = [
         beforeEnter: (to, from, next) => {
             RouteService.authenticateUser(
                 '/learning/logout',
-                localStorage.getItem('brace-learning-tk'),
+                localStorage.getItem('learning-user-tk'),
                 window.location.href = '/learning/login',
                 '/learning/login'
             );
-            localStorage.removeItem("brace-learning-tk");
+            localStorage.removeItem("user-learning-tk");
         }
-    },
-
-    {
-        path: '/learning/assessment',
-        name: "Assessment",
-        component: () => import('../components/learning/assessments/LearningAssessmentView.vue')
-    },
-
-    {
-        path: '/diagnostic/diagnostic-tool',
-        name: "/DiagnosticTool",
-        component: () => import('../components/learning/diagnosticQuestion/DiagnosticQuestion.vue'),
-        meta: { disableBackNavigation: true },
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
-                next,
-                '/learning/login',
-            )
-        },
-    },
-
-    {
-        path: '/diagnostic/user-details',
-        name: "/UserDetails",
-        component: () => import('../components/learning/diagnosticQuestion/UserDetails.vue'),
-        meta: { disableBackNavigation: true },
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
-                next,
-                '/learning/login',
-            )
-        },
-    },
-
-    {
-        path: '/diagnostic/instruction',
-        name: "/Instruction",
-        component: () => import('../components/learning/diagnosticQuestion/Welcomepage.vue'),
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
-                next,
-                '/learning/login',
-            )
-        },
-    },
-
-    {
-        path: '/diagnostic/multiselectques',
-        name: "/mutlitselectQues",
-        component: () => import('../components/learning/diagnosticQuestion/testCheck.vue'),
-        meta: { disableBackNavigation: true },
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
-                next,
-                '/learning/login',
-            )
-        },
-    },
-
-    {
-        path: '/diagnostic/success-page',
-        name: "/SuccessPage",
-        component: () => import('../components/learning/diagnosticQuestion/SuccessPage.vue'),
-        meta: { disableBackNavigation: true },
-        beforeEnter: (to, from, next) => {
-            BaseService.deleteCookies();
-            RouteService.authenticateUser(
-                '/api/learning/authenticate',
-                localStorage.getItem('brace-learning-tk'),
-                next,
-                '/learning/login',
-            )
-        },
     },
 
     // {
@@ -577,13 +441,5 @@ const router = createRouter({
     history: createWebHistory(),
     routes, // short for `routes: routes`
 });
-// router.beforeEach((to, from, next) => {
-//     if (to.meta.disableBackNavigation) {
-//       window.history.pushState(null, null, window.location.href);
-//       window.onpopstate = function () {
-//         window.history.go(1);
-//       };
-//     }
-//     next();
-//   });
+
 export default router

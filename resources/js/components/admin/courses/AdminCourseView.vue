@@ -285,7 +285,7 @@ export default {
             axios.get('/api/admin/courses?page=' + page, {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {
@@ -306,7 +306,7 @@ export default {
             axios.get('/api/admin/modules', {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {
@@ -331,7 +331,7 @@ export default {
             axios.post('/api/admin/courses/search?page=' + page, form, {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {

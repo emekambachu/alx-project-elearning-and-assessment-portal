@@ -42,7 +42,7 @@
         formData.append('brace_course_id', course.value.id);
 
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.post('/api/learning/course/discussion/comment', formData, {
             headers: {
                 "Authorization" : "Bearer " + token,
@@ -90,7 +90,7 @@
 
     const getComments = async () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/course/discussion', {
             headers: {
                 "Authorization" : "Bearer " + token,
@@ -119,7 +119,7 @@
 
     const getMoreComments = async () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/course/discussion', {
             headers: {
                 "Authorization" : "Bearer " + token,
@@ -148,7 +148,7 @@
 
     const getCourseActivity = async () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/course/user-activity', {
             headers: {
                 "Authorization" : "Bearer " + token,
@@ -175,7 +175,7 @@
 
     const storeCourseActivity = async () => {
         // Get token from local storage
-        let token = localStorage.getItem('brace-learning-tk');
+        let token = localStorage.getItem('learning-user-tk');
         axios.get('/api/learning/course/user-activity/store', {
             headers: {
                 "Authorization" : "Bearer " + token,

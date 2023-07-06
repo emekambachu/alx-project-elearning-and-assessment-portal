@@ -36,7 +36,7 @@ let sweetAlertService = {
         swal.fire({
             position: 'center',
             icon: 'success',
-            html: "<h4>"+message+"</h4>",
+            html: "<h6>"+message+"</h6>",
             showConfirmButton: true,
             timer: timer
         })

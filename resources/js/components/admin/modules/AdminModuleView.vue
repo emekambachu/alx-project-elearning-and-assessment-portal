@@ -3,7 +3,7 @@
     <div>
         <div class="row">
             <div class="col-12">
-                <h4 class="content-header">BRACE | Modules</h4>
+                <h4 class="content-header">Modules</h4>
             </div>
             <div class="col-xl-3 col-lg-6 col-12">
                 <div class="card">
@@ -263,7 +263,7 @@ export default {
             axios.get('/api/admin/modules?page=' + page, {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {
@@ -289,7 +289,7 @@ export default {
             axios.post('/api/admin/modules/search?page=' + page, form, {
                 withCredentials: true,
                 headers: {
-                    "Authorization" : "Bearer " + localStorage.getItem('afc-admin-tk'),
+                    "Authorization" : "Bearer " + localStorage.getItem('learning-admin-tk'),
                     'Accept' : 'application/json',
                 },
             }).then((response) => {

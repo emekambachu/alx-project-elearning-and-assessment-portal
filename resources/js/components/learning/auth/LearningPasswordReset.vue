@@ -7,7 +7,7 @@
                  style="visibility: visible; animation-name: fadeInLeft; background-color: #fff;">
                 <div class="row m-0">
                     <div class="col-12 margin-six-bottom lg-margin-six-bottom md-margin-30px-bottom sm-no-margin-bottom">
-                        <h4 class="na-text-dark-green learning-intro-header text-center mx-auto mx-lg-0 sm-width-100 mb-0">
+                        <h4 class="text-navy-blue learning-intro-header text-center mx-auto mx-lg-0 sm-width-100 mb-0">
                             Learning Portal</h4>
                         <p class="text-center text-medium font-normal-manrope-black">Password Reset</p>
 

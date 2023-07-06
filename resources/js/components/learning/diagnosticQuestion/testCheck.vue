@@ -238,7 +238,7 @@ export default {
         },
 
         async getQuestionStatus() {
-            const token = localStorage.getItem("brace-learning-tk");
+            const token = localStorage.getItem("learning-user-tk");
             try {
                 // const response = await axios.get(`http://localhost:8000/api/diagnostic-tool/fetch_answer_status`, { headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}`}})
 
@@ -277,7 +277,7 @@ export default {
 
         async handleSubmit() {
 
-            const token = localStorage.getItem("brace-learning-tk");
+            const token = localStorage.getItem("learning-user-tk");
             const formData = {};
             const ansStatusData = {};
 

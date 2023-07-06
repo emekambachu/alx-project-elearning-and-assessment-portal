@@ -44,10 +44,10 @@
                             <span class="material-symbols-outlined text-orange float-left">note</span>
                             <div class="float-left ml-1">
                                 <p class="mb-0">{{ resource.title }}</p>
-                                <a class="na-text-dark-green" :href="resource.url" target="_blank">
+                                <a class="text-navy-blue" :href="resource.url" target="_blank">
                                     {{ resource.url }}
                                 </a><br>
-                                <a class="na-text-dark-green"
+                                <a class="text-navy-blue"
                                    :href="resource.document" :download="resource.document">
                                     <i class="fa fa-download"></i>Download</a>
                             </div>
@@ -96,7 +96,7 @@ export default {
 
         const getCourse = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/course', {
                 headers: {
                     "Authorization" : "Bearer " + token,
@@ -118,7 +118,7 @@ export default {
 
         // const getCourseActivity = async () => {
         //     // Get token from local storage
-        //     let token = localStorage.getItem('brace-learning-tk');
+        //     let token = localStorage.getItem('learning-user-tk');
         //     axios.get('/api/learning/course/user-activity', {
         //         headers: {
         //             "Authorization" : "Bearer " + token,
@@ -145,7 +145,7 @@ export default {
 
         const storeCourseActivity = async () => {
             // Get token from local storage
-            let token = localStorage.getItem('brace-learning-tk');
+            let token = localStorage.getItem('learning-user-tk');
             axios.get('/api/learning/course/user-activity/store', {
                 headers: {
                     "Authorization" : "Bearer " + token,
