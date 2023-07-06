@@ -1,0 +1,160 @@
+.brand-color-bg {
+    background-color: #039246;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.brand-color-bg:hover {
+    background-color: rgb(4, 191, 95);
+    color: #ffffff;
+}
+
+.center-cropped {
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 380px;
+    width: 400px;
+}
+
+.focusarea-center-cropped {
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    height: 300px;
+    width: 400px;
+}
+
+.brand-text {
+    color: #039246;
+}
+
+.brand-text-brown {
+    color: #723606;
+}
+
+ul#entrepreneur-social {
+    list-style: none;
+}
+ul#entrepreneur-social li {
+    display: inline;
+    padding-right: 10px;
+    color: #1a940a;
+}
+
+ul#paginate {
+    list-style: none;
+}
+ul#paginate li {
+    display: inline-block;
+}
+
+.company-title {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.country-name {
+    color: #f1ad76;
+    font-size: 14px;
+}
+
+.footer-bg {
+    background-color: #13953e;
+    color: #ffffff;
+}
+
+.footer-bg a:any-link {
+    color: #ffffff;
+}
+
+.entrepreneurs-box {
+}
+
+.center-inside {
+    margin: 0 auto;
+}
+
+.knowledge-img-crop {
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    width: 300px;
+    height: 214px;
+}
+
+.knowledge-header-grid {
+    color: #039246;
+    font-size: 13px;
+}
+
+.knowledge-header-single {
+    color: #039246;
+}
+
+audio {
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+    width: 100%;
+    height: 25px;
+}
+
+.knowledge-abstract-text {
+    font-size: 12px;
+}
+
+.knowledge-box-bg {
+    background-color: #efefef;
+}
+
+.knowledge-author a:any-link {
+    color: #047536;
+}
+
+.knowledge-related-img-crop {
+    object-fit: none; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    width: 80px;
+    height: 80px;
+}
+
+.knowledge-padding-single {
+    padding: 8px;
+}
+.association-check-panel {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 200px;
+}
+
+.association-check-panel-warning {
+    padding: 2px;
+    border: 1px solid #ff0000;
+    border-radius: 10px;
+}
+
+.table-style{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    background-color: #0000;
+    font-size: 13px;
+}
+
+.table-style p{
+    font-size: 13px;
+}
+
+.verification-status{
+    width: 170px;
+    text-align: center;
+    padding: 1px;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.border-bottom-dark{
+    border-bottom: 1px solid #000;
+    margin-bottom: 7px;
+}
+
+.bg-grey-rounded{
+    background-color: #f3f3f3;
+    border-radius: 6px;
+}

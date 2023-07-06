@@ -1,0 +1,4 @@
+Run Queue Job in background
+===========================
+/usr/local/bin/ea-php80 /home/nourish2020/brace.afchub.org/artisan queue:listen --rest=0.4 --stop-when-empty >> /dev/null 2>&1
+
