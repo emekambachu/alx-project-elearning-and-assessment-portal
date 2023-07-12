@@ -92,7 +92,10 @@
                         <div class="icon-social-small">
                             <a href="https://www.linkedin.com/in/chukwuemeka-mbachu/"
                                target="_blank" class="text-navy-blue">
-                                <i class="fab fa-2x fa-linkedin"></i></a><br>
+                                <i class="fab fa-2x fa-linkedin"></i></a>
+                            <a href="https://www.twitter.com/dexmbachu"
+                               target="_blank" class="text-navy-blue">
+                                <i class="fab fa-2x fa-twitter"></i></a>
                         </div>
 
                         <span class="text-navy-blue text-medium text-uppercase d-block line-height-11 custom-font2 font-weight-600 margin-10px-top">Victor Chukwuemeka Mbachu (Backend Developer)</span>
@@ -108,7 +111,10 @@
                         <div class="icon-social-small">
                             <a href="https://www.linkedin.com/in/thomas-omotayo-545266131/"
                                target="_blank" class="text-navy-blue">
-                                <i class="fab fa-2x fa-linkedin"></i></a><br>
+                                <i class="fab fa-2x fa-linkedin"></i></a>
+                            <a href="https://twitter.com/ethomdigital?t=SG3tTw_YfEGT3xOwpT1EZg&s=09"
+                               target="_blank" class="text-navy-blue">
+                                <i class="fab fa-2x fa-twitter"></i></a>
                         </div>
 
                         <span class="text-navy-blue text-medium text-uppercase d-block line-height-11 custom-font2 font-weight-600 margin-10px-top">Thomas Esther Omotayo (Frontend Developer)</span>
