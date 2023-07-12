@@ -13,7 +13,7 @@ class ModuleMenu extends Component
      */
     public function __construct()
     {
-        //
+        // this is a comment by Omotayo Esther
     }
 
     /**
