@@ -12,10 +12,9 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-   {
-    $this->call([
-        DiagnosticQuestionsSeeder::class,
-    ]);
-   }
+    public function run(){
+        $this->call([
+//            AdminTableSeeder::class,
+        ]);
+    }
 }
