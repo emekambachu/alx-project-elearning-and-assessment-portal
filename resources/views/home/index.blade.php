@@ -243,7 +243,7 @@
 
     <section class="padding-five-tb bg-light-purple">
         <div class="container">
-            <h5 class="custom-font2 text-navy-blue">Frequently Asked Questions Testing </h5>
+            <h5 class="custom-font2 text-navy-blue">Frequently Asked Questions</h5>
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-12">
                     <!-- start accordion -->
