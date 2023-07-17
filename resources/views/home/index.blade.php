@@ -163,7 +163,7 @@
                     </ul>
                 </div>
                 <div class="col-md-8 justify-content-center">
-                    <img class="program-benefits-img" src="{{ asset('/images/home/interactive-dashboard.png') }}" alt=""/>
+                    <img class="program-benefits-img" src="{{ asset('/images/home/interactive-dashboard.jpg') }}" alt=""/>
                 </div>
             </div>
         </div>
@@ -182,7 +182,7 @@
                     </ul>
                 </div>
                 <div class="col-md-8 justify-content-center">
-                    <img class="program-benefits-img" src="{{ asset('/images/home/prerequisite-courses.png') }}" alt=""/>
+                    <img class="program-benefits-img" src="{{ asset('/images/home/prerequisite-courses.jpg') }}" alt=""/>
                 </div>
             </div>
         </div>
@@ -200,7 +200,7 @@
                     </ul>
                 </div>
                 <div class="col-md-8 justify-content-center">
-                    <img class="program-benefits-img" src="{{ asset('/images/home/assessments.png') }}" alt=""/>
+                    <img class="program-benefits-img" src="{{ asset('/images/home/assessments.jpg') }}" alt=""/>
                 </div>
             </div>
         </div>
@@ -219,7 +219,7 @@
                     </ul>
                 </div>
                 <div class="col-md-8 justify-content-center">
-                    <img class="program-benefits-img" src="{{ asset('/images/home/admin-course-management.png') }}" alt=""/>
+                    <img class="program-benefits-img" src="{{ asset('/images/home/admin-course-management.jpg') }}" alt=""/>
                 </div>
             </div>
         </div>
