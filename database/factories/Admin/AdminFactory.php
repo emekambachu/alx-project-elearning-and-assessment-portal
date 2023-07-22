@@ -20,7 +20,7 @@ class AdminFactory extends Factory
             'last_name' => 'Super Admin',
             'email' => 'admin@email.com',
             'password' => Hash::make('11111111'),
-            'remember_token' => Str::random(10),
+//            'remember_token' => Str::random(10),
             'last_login' => $this->faker->dateTime(),
 //            'role' => $this->faker->randomElement(array ('admin', 'superadmin')),
             'role' => '0',
